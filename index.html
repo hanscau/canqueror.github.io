@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64">Can-queror</h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Overview</a>
+    <a href="#hardware" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Hardware</a>
+    <a href="#electronics" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Electronics</a>
+    <a href="#program" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Program</a>
+    <a href="#demo" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Demo</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Can-queror</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+    <h1 class="w3-jumbo"><b>Can-queror!</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>IoT Aluminium Recycling Machine</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+
+  <img src="img/front-view.jpeg" alt="Side view of Can-queror" class="w3-image">
+
+  <div class="w3-container" style="margin-top:50px" id="documents">
+    <a href="resources/Can-queror-presentation.pptx"><button class="w3-button w3-red w3-padding-large w3-hover-black" >Powerpoint Slides</button></a>
+    <a href="resources/Can-queror-report.docx"><button class="w3-button w3-red w3-padding-large w3-hover-black">Report</button></a>
+    <a href="drawings\drawings.rar"><button class="w3-button w3-red w3-padding-large w3-hover-black">2D Drawings</button></a>
+  </div>
+
+  <!-- Services -->
+  <div class="w3-container" id="overview" style="margin-top:35px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Overview.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Can-queror is a IoT Aluminium recycling maching. It is a can crusher that logs the number of cans you donated and link it to your Ez-link card's UID through the cloud.</p>
+    <p>It is a mean of giving users incentives by rewarding them with Ez-link credits in turn for recycling cans. Our prototype is just a proof of concept so it can only read the UID of unencrypted RFID card and use a cloud database system to show how we would send the data to the cloud for EZ-link to track the number of can donation.</p>
+  </div>
+
+  <!-- Designers -->
+  <div class="w3-container" id="hardware" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Hardware.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>The crusher of cans, the giver of dreams</p>
+    <p>Our can crusher mechanism is made to make can crushing an ease. It leverages the power of physics by converting rotational force to linear force that is used to crush cans like crushing bugs.</p>
+    <img src="img/drawing1.jpeg" class="w3-image">
+  </div>
+
+  <!-- Packages / Pricing Tables -->
+  <div class="w3-container" id="electronics" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Electronics.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>For our electonics, we used the unholy couple of LED and LDR to detect the can when it is falling</p>
+    <img src="img/ldr-led.jpeg" class="w3-image">
+  </div>
+
+  <!-- Packages / Pricing Tables -->
+  <div class="w3-container" id="program" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Program.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>For our edge proccesing, we are using an Esp32 to read from the RFID, interface with the LDR/LED pairing and connect to the internet to send the appropriate MQTT messages to our backend hosted on AWS</p>
+    <p>Our backend is carried by the mighty AWS to host everything without the hassle of dealing with anymore hardware, the picture illustrates the build:</p>
+    <img src="img\aws-architecture.png" class="w3-image">
+    <p>Lambda, our trusted squire is issued to handle the request of the MQTT messages and to update the correct data on our table hosted on the one and only noSQL database DYNAMODB</p>
+  </div>
+
+  <div class="w3-container" id="demo" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Demo.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>And finally, to show our system in spectacular action. Our wizards have managed to draw the essence of lights and make the sequence immortal</p>
+    <b><a href="https://youtu.be/IWuKvxaBQ-Y">Demo video</a></b>
+  </div>
+
+
+<!-- End page content -->
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by the great SP</p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
